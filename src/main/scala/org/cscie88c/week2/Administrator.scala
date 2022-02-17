@@ -6,6 +6,7 @@ class Administrator(
     name: String,
     email: String,
     budget: Long
-) extends UniversityEmployee(name, email) {
-    override def description: String = s"Name: ${ name }, Email: ${ email }, Budget: $$${ budget }"
+  ) extends UniversityEmployee(name, email) {
+  override def description: String =
+    s"Name: ${name}, Email: ${email}, Budget: $$${budget}"
 }

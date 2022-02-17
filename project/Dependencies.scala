@@ -28,6 +28,10 @@ object Dependencies {
 
     // logging
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
-    "ch.qos.logback" % "logback-classic" % "1.2.3"
+    "ch.qos.logback" % "logback-classic" % "1.2.3",
+
+    // https://mvnrepository.com/artifact/com.twitter/algebird-core
+    "com.twitter" %% "algebird-core" % "0.13.9"
+
   )
 }

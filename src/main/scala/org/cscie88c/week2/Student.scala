@@ -4,16 +4,16 @@ import scala.io.Source
 
 // complete the definition of the Student case class and companion object
 final case class Student(
-  val id: Int,
-  val firstName: String,
-  val lastName: String,
-  val email: String,
-  val gender: String,
-  val country: String
-)
+    val id: Int,
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    val gender: String,
+    val country: String
+  )
 
 object Student {
-  
+
   val allStudents: List[Student] = readFile("data/student_data.csv")
 
   def apply(csvRow: String): Student = {
@@ -28,24 +28,26 @@ object Student {
     )
   }
 
-  def readFile(fileName: String): List[Student] = {
+  def readFile(fileName: String): List[Student] =
     Source
       .fromResource(fileName)
       .getLines()
-      .toList.tail
+      .toList
+      .tail
       .map(Student(_))
-  }
 
-  def fullName(student: Student): String = s"${student.firstName} ${student.lastName}"
+  def fullName(student: Student): String =
+    s"${student.firstName} ${student.lastName}"
 
-  def studentNamesByCountry(country: String): List[String] = {
-    Student.allStudents
+  def studentNamesByCountry(country: String): List[String] =
+    Student
+      .allStudents
       .filter(_.country == country)
       .map(fullName)
-  }
 
   def studentTotalsByCountry(country: String): Int = {
-    Student.allStudents
+    Student
+      .allStudents
       .filter(_.country == country)
     val countryStudents = Student.allStudents.filter(_.country == country)
     countryStudents.size
